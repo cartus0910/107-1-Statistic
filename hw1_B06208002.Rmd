@@ -1,0 +1,21 @@
+---
+title: "hw1_B06208002"
+author: "CARTUS YOU游博翔"
+date: "2018年9月18日"
+output: html_document
+---
+3.1 Calculator
+```{r}
+((2018-2017)/(2018-1998))*100
+```
+
+3.2 Workspace
+
+```{r}
+a <- 2018-2017
+b <- 2018-1998
+c <- a/b
+p <- c*100
+```
+
+3.4 Functions
