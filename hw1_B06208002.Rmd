@@ -4,18 +4,161 @@ author: "CARTUS YOU游博翔"
 date: "2018年9月18日"
 output: html_document
 ---
-3.1 Calculator
+
+## 3.1 Calculator
 ```{r}
 ((2018-2017)/(2018-1998))*100
 ```
+***
 
-3.2 Workspace
-
+## 3.2 Workspace
 ```{r}
 a <- 2018-2017
 b <- 2018-1998
 c <- a/b
 p <- c*100
+p
+```
+***
+
+## 3.4 Functions
+```{r}
+v <- c(4,5,8,11)
+sum(v)
+```
+***
+
+## 3.5 Plots
+```{r}
+x <- rnorm(100)
+plot(x)
+```
+***
+
+## 4 Help and documentation
+```{r}
+help(sqrt)
+```
+***
+
+## 5 Scripts
+```{r}
+source("firstscript.R")
+source("firstscript.R")
+source("firstscript.R")
+```
+***
+
+## 6.2 Matrices
+```{r}
+P <- seq(from=31, to=60, by=1)
+Q <- matrix(data=P, ncol=5)
+Q
+```
+***
+
+## 6.3 Data frames
+```{r}
+source('x123.R')
+t <- data.frame(a=x1, b=x1+x2, c=x1+x2+x3)
+plot(t)
+source('x123.R')
+t <- data.frame(a=x1, b=x1+x2, c=x1+x2+x3)
+plot(t)
+source('x123.R')
+t <- data.frame(a=x1, b=x1+x2, c=x1+x2+x3)
+plot(t)
+```
+***
+
+## 7 Graphics
+```{r}
+plot(t$a, type="l", ylim=range(t), lwd=3, col=rgb(1,0.2,0,0.5))
+lines(t$b, type="s", lwd=2, col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4, col=rgb(0,0.5,0.8,0.5))
 ```
 
-3.4 Functions
+arguments | Usage
+----------|-----------------------------------------
+    rgb   | control the color and transparency of the plot
+    lwd   | control the line width
+    pch   | specifies the type of points
+    cex   | a numerical vector giving the amount by which plotting text and symbols.
+    
+***
+
+## 8 Reading and writing data files
+```{r}
+d <- data.frame(a = c(1,2,4,8,16,32), g = c(2,4,8,16,32,64), x = c(3,6,12,24,48,96))
+write.table(d, file="tst1.txt", row.names=FALSE)
+d2 <- read.table(file="tst1.txt", header=TRUE)
+d2$g <- d2$g*5
+write.table(d2, file="tst2.txt", row.names=FALSE)
+```
+***
+
+## 9 Not available data
+```{r}
+suppressWarnings(x <- sqrt(rnorm(100)))
+mean(x, na.rm=TRUE)
+```
+***
+
+## 10.2 Dates
+```{r}
+x_axis <- strptime(c('20180919000000', '20181205000000', '20190910000000'), format="%Y%m%d%H%M%S")
+y_axis <- c(7,8,9)
+plot(x=x_axis, y=y_axis)
+```
+
+***
+
+## 11.2 For-loop
+```{r}
+h <- seq(from=1, to=100, by=1)
+s <- c()
+for(i in 1:100){
+  if(i < 5 || i >90){
+    s[i] = h[i]*10
+  }
+  else{
+    s[i] = h[i]*0.1
+  }
+}
+s
+```
+***
+
+## 11.3 Writing your own functions
+```{r}
+myfun <- function(h){
+  s <- c()
+  for(i in 1:100){
+    if(i < 5 || i >90){
+      s[i] = h[i]*10
+      }
+    else{
+      s[i] = h[i]*0.1
+    }
+  }
+  return(s)
+}
+h <- rnorm(100)
+myfun(h)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
